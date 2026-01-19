@@ -1,0 +1,1 @@
+main(){char*s="main(){}"}

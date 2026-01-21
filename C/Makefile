@@ -52,7 +52,7 @@ RELEASE_FLAGS  := -O3 -DNDEBUG
 # Targets
 # =============================================================================
 
-.PHONY: all debug release clean fclean re diff
+.PHONY: all debug release clean fclean re test diff
 
 all: $(BINARIES)
 
@@ -102,25 +102,26 @@ fclean: clean
 re: fclean all
 
 # =============================================================================
-# Diff
+# Tests
 # =============================================================================
 
+test: diff
+
 diff: $(BINARIES)
-	@echo "\033[1;32m>>> Running Dr_Quine tests...\033[0m"
+	@echo "\033[1;32m>>> Running Dr_Quine tests... (C)\033[0m"
+
 	@./Colleen > tmp1
-	@cat $(SRC_DIR)/$(DIR1)/Colleen.c > tmp2
-	@diff tmp1 tmp2 || echo "Differences found for Colleen!"
+	@(diff $(SRC_DIR)/$(SRC_DIR1)/Colleen.c tmp1 && echo "\033[1;32mNo differences found for Colleen !\033[0m" ) || echo "\033[1;31mDifferences found for Colleen !\033[0m"
+	@rm -f tmp1
+
+	@./Grace
+	@(diff $(SRC_DIR)/$(SRC_DIR2)/Grace.c Grace_kid.c && echo "\033[1;32mNo differences found for Grace !\033[0m" ) || echo "\033[1;31mDifferences found for Grace !\033[0m"
+	@rm -f ./Grace_kid.c
+
+	@./Sully > tmp1
+	@cat $(SRC_DIR)/$(SRC_DIR3)/Sully.c > tmp2
+	@(diff tmp1 tmp2 && echo "\033[1;32mNo differences found for Sully !\033[0m" ) || echo "\033[1;31mDifferences found for Sully !\033[0m"
 	@rm -f tmp1 tmp2
-
-# 	@./Grace > tmp1
-# 	@cat $(SRC_DIR)/$(DIR2)/Grace.c > tmp2
-# 	@diff tmp1 tmp2 || echo "Differences found for Grace!"
-# 	@rm -f tmp1 tmp2
-
-# 	@./Sully > tmp1
-# 	@cat $(SRC_DIR)/$(DIR3)/Sully.c > tmp2
-# 	@diff tmp1 tmp2 || echo "Differences found for Sully!"
-# 	@rm -f tmp1 tmp2
 
 # =============================================================================
 # Dependencies

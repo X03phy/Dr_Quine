@@ -111,7 +111,7 @@ test: $(BINARIES)
 
 	@./Colleen > tmp1
 	@(diff $(SRC_DIR)/$(SRC_DIR1)/Colleen.c tmp1 && \
-		echo "\033[1;32mNo differences found for Colleen !\033[0m" ) || \
+		echo "\033[1;32mNo differences found for Colleen !\033[0m") || \
 		echo "\033[1;31mDifferences found for Colleen !\033[0m"
 	@rm -f tmp1
 

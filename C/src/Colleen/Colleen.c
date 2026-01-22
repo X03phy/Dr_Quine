@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> // printf()
 
 
 void foo(void) {}
@@ -10,10 +10,10 @@ int main()
 
 	foo(); // This function does absolutely nothing
 
-	str = "#include <stdio.h>%c%c%cvoid foo(void) {}%c%c%cint main()%c{%c%cchar *str;%c%c%cfoo(); // This function does absolutely nothing%c%c%cstr = %c%s%c;%c%cprintf(str, 10, 10, 10, 10, 10, 10, 10, 10, 9, 10, 10, 9, 10, 10, 9, 34, str, 34, 10, 9, 10, 10, 9, 10, 10, 10, 10);%c%c%creturn (0);%c}%c%c/* Goodbye Colleen :( */%c";
-	printf(str, 10, 10, 10, 10, 10, 10, 10, 10, 9, 10, 10, 9, 10, 10, 9, 34, str, 34, 10, 9, 10, 10, 9, 10, 10, 10, 10);
+	str = "#include <stdio.h> // printf()%1$c%1$c%1$cvoid foo(void) {}%1$c%1$c%1$cint main()%1$c{%1$c%2$cchar *str;%1$c%1$c%2$cfoo(); // This function does absolutely nothing%1$c%1$c%2$cstr = %3$c%4$s%3$c;%1$c%2$cprintf(str, 10, 9, 34, str);%1$c%1$c%2$creturn (0);%1$c}%1$c%1$c/* Ça va être tout noir ! */%1$c";
+	printf(str, 10, 9, 34, str);
 
 	return (0);
 }
 
-/* Goodbye Colleen :( */
+/* Ça va être tout noir ! */

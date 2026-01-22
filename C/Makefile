@@ -52,7 +52,7 @@ RELEASE_FLAGS  := -O3 -DNDEBUG
 # Targets
 # =============================================================================
 
-.PHONY: all debug release clean fclean re test diff
+.PHONY: all debug release clean fclean re test
 
 all: $(BINARIES)
 
@@ -98,7 +98,7 @@ fclean: clean
 	@if [ -f $(NAME1) ]; then rm -rf $(NAME1) && printf "\033[1;31m\tDeleted: $(NAME1)\033[0m\n"; fi
 	@if [ -f $(NAME2) ]; then rm -rf $(NAME2) && printf "\033[1;31m\tDeleted: $(NAME2)\033[0m\n"; fi
 	@if [ -f $(NAME3) ]; then rm -rf $(NAME3) && printf "\033[1;31m\tDeleted: $(NAME3)\033[0m\n"; fi
-	@rm -rf $(NAME3)_*
+	@rm -f $(NAME3)_*
 
 re: fclean all
 
@@ -106,23 +106,30 @@ re: fclean all
 # Tests
 # =============================================================================
 
-test: diff
-
-diff: $(BINARIES)
+test: $(BINARIES)
 	@echo "\033[1;32m>>> Running Dr_Quine tests... (C)\033[0m"
 
 	@./Colleen > tmp1
-	@(diff $(SRC_DIR)/$(SRC_DIR1)/Colleen.c tmp1 && echo "\033[1;32mNo differences found for Colleen !\033[0m" ) || echo "\033[1;31mDifferences found for Colleen !\033[0m"
+	@(diff $(SRC_DIR)/$(SRC_DIR1)/Colleen.c tmp1 && \
+		echo "\033[1;32mNo differences found for Colleen !\033[0m" ) || \
+		echo "\033[1;31mDifferences found for Colleen !\033[0m"
 	@rm -f tmp1
 
 	@./Grace
-	@(diff $(SRC_DIR)/$(SRC_DIR2)/Grace.c Grace_kid.c && echo "\033[1;32mNo differences found for Grace !\033[0m" ) || echo "\033[1;31mDifferences found for Grace !\033[0m"
-	@rm -f ./Grace_kid.c
+	@(diff $(SRC_DIR)/$(SRC_DIR2)/Grace.c Grace_kid.c >/dev/null && \
+		printf "\033[1;32mNo differences found for Grace !\033[0m\n") || \
+		printf "\033[1;31mDifferences found for Grace !\033[0m\n"
+	@rm -f Grace_kid.c
 
-	@./Sully > tmp1
-	@cat $(SRC_DIR)/$(SRC_DIR3)/Sully.c > tmp2
-	@(diff tmp1 tmp2 && echo "\033[1;32mNo differences found for Sully !\033[0m" ) || echo "\033[1;31mDifferences found for Sully !\033[0m"
-	@rm -f tmp1 tmp2
+	@./Sully
+	@for i in 4 3 2 1 0; do \
+		if diff $(SRC_DIR)/$(SRC_DIR3)/Sully.c Sully_$$i.c; then \
+			printf "\033[1;32mNo differences found for Sully_%s !\033[0m\n" $$i; \
+		else \
+			printf "\033[1;31mDifferences found for Sully_%s !\033[0m\n" $$i; \
+		fi; \
+	done
+	@rm -f $(NAME3)_*
 
 # =============================================================================
 # Dependencies

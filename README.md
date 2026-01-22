@@ -37,8 +37,25 @@ printf(s,10,10,34,s,34,10);return 0;}
 
 ## Resources
 
+### Theory
+
+
+### Code
+
 - [Quine Programs (Holy Grail)](https://cs.lmu.edu/~ray/notes/quineprograms/)
 - [Program That Prints Its Own Source Code | C Programming Example](https://www.youtube.com/watch?v=m8uQ0cJKDM0) -> This is not a quine !
 - [Quines - The Art of Code](https://www.youtube.com/watch?v=w1CaPe6_uE4)
 - [Quines (self-replicating programs)](http://www.madore.org/~david/computers/quine.html)
 - [Lightning Talk: How to Write a Quine? - Dmitry Kandalov [ ACCU 2021 ]](https://www.youtube.com/watch?v=wOZd5PnUCD8)
+
+### Makefile
+
+- https://www.reddit.com/r/C_Programming/comments/1ghy847/the_perfect_makefile/
+- https://www.gnu.org/software/make/manual/html_node/Implicit-Variables.html
+
+
+### ASM
+
+- [Assembly programming](https://github.com/0xAX/asm/blob/master/content/asm_1.md)
+- [x86 Instructions](https://learn.microsoft.com/fr-fr/windows-hardware/drivers/debugger/x86-instructions)
+- [x86 Architecture](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture?source=recommendations)

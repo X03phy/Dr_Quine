@@ -98,6 +98,7 @@ fclean: clean
 	@if [ -f $(NAME1) ]; then rm -rf $(NAME1) && printf "\033[1;31m\tDeleted: $(NAME1)\033[0m\n"; fi
 	@if [ -f $(NAME2) ]; then rm -rf $(NAME2) && printf "\033[1;31m\tDeleted: $(NAME2)\033[0m\n"; fi
 	@if [ -f $(NAME3) ]; then rm -rf $(NAME3) && printf "\033[1;31m\tDeleted: $(NAME3)\033[0m\n"; fi
+	@rm -rf $(NAME3)_*
 
 re: fclean all
 

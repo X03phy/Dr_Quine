@@ -59,3 +59,7 @@ printf(s,10,10,34,s,34,10);return 0;}
 - [Assembly programming](https://github.com/0xAX/asm/blob/master/content/asm_1.md)
 - [x86 Instructions](https://learn.microsoft.com/fr-fr/windows-hardware/drivers/debugger/x86-instructions)
 - [x86 Architecture](https://learn.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture?source=recommendations)
+- [NASM - The Netwide Assembler](https://www.nasm.us/doc/nasm00.html)
+- [Tomasz Żok, x86 assembly](https://www.cs.put.poznan.pl/tzok/public/cawllp-04-asm.html)
+
+https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html

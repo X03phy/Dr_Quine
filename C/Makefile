@@ -41,7 +41,7 @@ fclean: clean
 
 re: fclean all
 
-test: $(BINARIES)
+test: re
 	@echo "$(YEL)Start tests$(RST)"
 	@./Colleen > tmp
 	@diff $(SRC_DIR)/Colleen.c tmp && echo "$(GRN)No differences found for Colleen!$(RST)" || echo "$(RED)Differences found for Colleen!$(RST)";

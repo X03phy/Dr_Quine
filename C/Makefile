@@ -34,7 +34,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
-	@rm -f tmp Grace_kid.c Sully_0 Sully_0.c Sully_1 Sully_1.c Sully_2 Sully_2.c Sully_3 Sully_3.c Sully_4 Sully_4.c
+	@rm -f tmp Grace_kid.c Sully_-1.c Sully_0 Sully_0.c Sully_1 Sully_1.c Sully_2 Sully_2.c Sully_3 Sully_3.c Sully_4 Sully_4.c
 
 fclean: clean
 	@rm -f $(BINARIES)
@@ -49,7 +49,7 @@ test: $(BINARIES)
 	@diff $(SRC_DIR)/Grace.c Grace_kid.c && echo "$(GRN)No differences found for Grace!$(RST)" || echo "$(RED)Differences found for Grace!$(RST)";
 	@./Sully
 	@echo "$(RED)Check differences for Sully!$(RST)"
-	@for i in $(shell seq 4 -1 0); do \
+	@for i in $(shell seq 4 -1 -1); do \
 		echo "$(YEL)Checking Sully_$$i.c...$(RST)"; \
 		diff $(SRC_DIR)/Sully.c Sully_$$i.c || true; \
 	done

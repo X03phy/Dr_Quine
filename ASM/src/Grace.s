@@ -32,7 +32,7 @@ main:
 	lea    rsi, [rel printf_format]
 	mov    edx, 10
 	mov    ecx, 9
-	mov    r8, 34
+	mov    r8d, 34
 	lea    r9, [rel kid]
 	lea    r10, [rel mode]
 	lea    r11, [rel printf_format]

@@ -34,10 +34,10 @@ main:
 	mov    ecx, 9
 	mov    r8d, 34
 	lea    r9, [rel kid]
-	push   r11
-	push   r10
 	lea    r10, [rel mode]
 	lea    r11, [rel printf_format]
+	push   r11
+	push   r10
 	call   fprintf wrt ..plt
 	pop    r10
 	pop    r11

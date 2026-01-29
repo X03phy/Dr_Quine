@@ -8,9 +8,6 @@ LD=gcc
 SRC_DIR=src
 BUILD_DIR=.build
 
-SRC=$(SRC_DIR)/Colleen.s $(SRC_DIR)/Grace.s $(SRC_DIR)/Sully.s
-OBJ=$(SRC:$(SRC_DIR)/%.s=$(BUILD_DIR)/%.o)
-
 RED=\033[1;31m
 GRN=\033[1;32m
 YEL=\033[1;33m

@@ -36,7 +36,7 @@ $(BUILD_DIR)/%.o: $(SRC_DIR)/%.s | $(BUILD_DIR)
 
 clean:
 	@rm -rf $(BUILD_DIR)
-	@rm -f tmp Grace_kid.s Sully_-1.s Sully_0 Sully_0.s Sully_1 Sully_1.s Sully_2 Sully_2.s Sully_3 Sully_3.s Sully_4 Sully_4.s
+	@rm -f tmp Grace_kid.s Sully_*
 
 fclean: clean
 	@rm -f $(BINARIES)
@@ -56,7 +56,5 @@ test: $(BINARIES)
 		diff $(SRC_DIR)/Sully.s Sully_$$i.s || true; \
 	done
 	@echo "$(YEL)End tests$(RST)"
-
--include $(DEP)
 
 .PHONY: all clean fclean re test

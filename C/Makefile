@@ -21,13 +21,13 @@ $(BUILD_DIR):
 	@mkdir -p $(BUILD_DIR)
 
 Colleen: $(BUILD_DIR)/Colleen.o
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $^ -o $@
 
 Grace: $(BUILD_DIR)/Grace.o
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $^ -o $@
 
 Sully: $(BUILD_DIR)/Sully.o
-	$(CC) $(CFLAGS) $^ -o $@
+	$(CC) $^ -o $@
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@

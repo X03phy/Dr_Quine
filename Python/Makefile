@@ -6,7 +6,7 @@ GRN=\033[1;32m
 YEL=\033[1;33m
 RST=\033[0m
 
-.PHONY: test clean
+.PHONY: clean test
 
 clean:
 	@rm -f tmp Grace_kid.py Sully_*
